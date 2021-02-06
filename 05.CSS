@@ -1,0 +1,198 @@
+  *{
+      margin: 0;
+      padding: 0;
+  }
+ 
+        .wrapper{
+           width: 1240px;
+           
+           margin: auto;
+           background-color: #dedede;
+       }
+       /* 设置导航栏 */
+       .nav,.footer{
+           width: 1240px;
+           height: 60px;
+           background-color: #333333;
+           margin-bottom: 20px;
+       }
+          .nav img{
+              height: 60px;
+              float: left;
+              margin-left: 30px;
+  
+          }
+          .nav ul{
+              
+              line-height: 60px;
+              display: flex;
+              flex-direction: row-reverse;
+          }
+          li{
+              font-size: 12px;
+              flex-grow: 0.03;
+          }
+       li a{
+         color: #fff; 
+         text-decoration: none;
+       }
+       ul li:first-child a{
+           color: #666666;
+       }
+       /* 设置内容 */
+       /* 布局 */
+       .content{
+           display: grid;
+           grid-template-columns: 65% 35%;
+           
+       }
+       /* 第一个 */
+       .box1,.box2,.box3,.box4,.box5{
+         background-color: #fff;
+         box-sizing: border-box;
+         padding: 40px 20px 20px 20px;
+         margin: 0 20px 20px 20px;
+         box-shadow: 3px 3px 3px #333333;
+       }
+       .box5{
+           margin: 0px 20px 20px 0px;
+       }
+       .photo{
+           height: 200px;
+       }
+       h1,h2,h3{
+           margin-bottom: 20px; 
+       }
+       h2{
+           color: #aaa;
+       }
+       h3{
+           color: #bbbbbb;
+       }
+       .box1,.box2,.box3,.box4 p{
+         line-height: 30px;
+       }
+       .text1>p:first-child,.text2>p:first-child{
+           text-indent: 20px;
+       }
+       .box2>ul{
+           list-style: none;
+           text-indent: 20px;
+       }
+       /* 设置第三个 */
+       /* .phtoto-wrapper{
+           width: 600px;
+           height: 200px;
+           border: orange 1px solid;
+       } */
+       /* .phtoto1{
+           background-color: orange;
+       } */
+       .phtoto1>.phtoto{
+           height: 100px;
+           width: 100px;
+       }
+       .phtoto-wrapper{
+            /* width: 600px;
+            height: 200px;
+            border: orange 1px solid; */
+           display: grid;
+           grid-template-columns: repeat(5,1fr);
+           gap: 20px;
+       }
+       .phtoto1{
+           border: 1px solid ;
+       }
+       .phtoto1 p{
+           text-align: center;
+       }
+       .phtoto1 img{
+        display: block;
+        margin: 10px auto;
+       }
+       /* 第四部分 表格 */
+       .box4>ol{
+           margin: 20px;
+       }
+       .box4>ol>li{
+           font-size: 15px;
+       }
+       table{
+           width: 100%;
+           
+       }
+       .box4 table tr:first-child{
+           background-color: #333333;
+           color: #fff;
+       }
+       .box4 table tr:last-child{
+           background-color: #cccccc;
+       }
+       /* 版尾 */
+       .footer{
+           color: #fff;
+           line-height: 60px;
+           text-align: center;
+       }
+       /* 设置侧栏 */
+       .side{
+           background-color: #dedede;
+       }
+       .side{
+        box-sizing: border-box;
+    }
+ .side h1{
+     display: block;
+     line-height: 40px;
+ }
+ .decoration{
+     height: 40px;
+     width: 3px;
+     background-color: #bbb;
+     margin: 0px 10px 0px;
+     float: left;
+ }  
+ .side div:first-child{
+     margin-bottom: 10px;
+ }
+ .box5 h3{
+     color: black;
+ }
+ .box5 table{
+    border-spacing: 10px;
+}
+/* 设置表格内容 */
+.box5 table td{
+    /* border: black 1px solid; */
+    font-size: 14px;
+    text-align: right;
+    vertical-align: top;
+}
+.box5 table tr>td:last-child{
+    text-align: left;
+}  
+.select>option{
+    color: blueviolet;
+}
+textarea{
+    font-size: 16px;
+}
+.input{
+    padding: 2px;
+}
+input,textarea{
+    outline: none;
+    border: 1px solid #bbbbbb;
+}
+.note{
+    color: #8c8c8c;
+}
+/* 设置提交按钮 */
+input[type=submit]{
+    width: 100%;
+    background-color: #3355d1;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
