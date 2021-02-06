@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./02'.登录.CSS">
+</head>
+<body>
+    <div class="land">
+        <!-- 第一部分 -->
+        <div class="box1">
+                <span class="p1">密码登录</span>
+                <span class="p2">短信登录</span>
+        </div>
+        <!-- 第二部分--输入 -->
+        <div class="box2">
+            <input type="text" value="你的手机号/邮箱" class="input1">
+            <div class="clear"></div>
+            <input type="password" placeholder="密码" class="input2">
+            <div class="clear"></div>
+        </div>
+        <!-- 第三部分--记住密码，找回秘密 -->
+        <div class="box3">
+            <div class="remember">
+                <label>
+                    <label for="remember me">
+                        <input type="checkbox" value="记住我" name="记住我" id="remember me">
+                    </label>
+        
+                    <span id="text1">记住我</span> 
+                    <span id="text2">不是自己的电脑上不要勾选此选项</span>
+                </label>
+                 <a href="https://passport.bilibili.com/register/findpassword.html#/verify?gourl=https%3A%2F%2Fwww.bilibili.com%2F" target="_blank" >
+                    忘记密码？
+                </a>
+                <a href="https://www.bilibili.com/blackboard/help.html#/?qid=01c16d22f6bb44fd976e8874142b60b6" target="_blank">
+                        无法验证？
+                 </a>   
+            </div>
+        </div>
+        <!-- 第四部分--登录与注册 -->
+        <div class="box4">
+             <a href="https://www.bilibili.com/" class="submit1">
+                登录
+                
+             </a>
+             <a href="https://passport.bilibili.com/register/phone.html#/phone" class="submit2">
+               注册
+                
+            </a>
+        </div>
+        <!-- 第五部分--其他登录方式 -->
+        <div class="box5">
+            <a href="https://login.sina.com.cn/signup/signin.php?r=https%3A%2F%2Fapi.weibo.com%2Foauth2%2Fauthorize%3Ftime%3D1612104987803%26sign%3Dcb3c742a66c88904aa7c9da83e78c9e8%26client_id%3D2841902482%26redirect_uri%3Dhttps%253A%252F%252Fpassport.bilibili.com%252Flogin%252Fsnsback%253Fsns%253Dweibo%2526state%253D7ebe4f3063d411eba6446698ddaf9f38%26scope%3Demail">
+               <img src="./图片/1切片_03.png" alt="">
+               <span>微博账号登录</span>
+               
+            </a>
+            <a href="https://graph.qq.com/oauth2.0/show?which=Login&display=pc&response_type=code&state=authorize&client_id=101135748&redirect_uri=https%3A%2F%2Fpassport.bilibili.com%2Flogin%2Fsnsback%3Fsns%3Dqq%26%26state%3D7ebe4f3063d411eba6446698ddaf9f38&scope=do_like,get_user_info,get_simple_userinfo,get_vip_info,get_vip_rich_info,add_one_blog,list_album,upload_pic,add_album,list_photo,get_info,add_t,del_t,add_pic_t,get_repost_list,get_other_info,get_fanslist,get_idollist,add_idol,del_idol,get_tenpay_addr">
+               
+               <img src="./图片/1切片_05.png" alt=""> 
+              <span>QQ账号登录</span>
+               
+            </a>
+        </div>
+    </div>
+    
+</body>
+</html>
