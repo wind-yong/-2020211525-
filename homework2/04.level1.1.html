@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['ABCDEEF,GHJKKM']  
+        console.log(arr);
+        function recur(arr){
+            for(var i=0;i<arr.length;i++)
+            {
+            // 把arr拆成字母
+            var arr2 = arr[i].split("") 
+            // 把字母排序
+            arr2.sort();
+            // 合并成字符串
+            arr2 = arr2.join("");
+            // 找重复出现的字母
+            arr2 = arr2.match(/(\w)\1+/g);
+            console.log(arr2);
+            }
+        } 
+        recur(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

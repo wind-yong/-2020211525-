@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         var str = 'today is a happy day'
+        console.log(str);
+        // 把str拆成单词
+        var arr = str.split(" ")
+        function creat(arr){
+              for(var i=0;i<arr.length;i++)
+            {
+            // 把arr拆成字母
+               var arr2 = arr[i].split("")
+
+               for(var j=0;j<arr2.length;j++)
+              {
+                 // 变大写
+                 arr2[0] = arr2[0].toUpperCase(); 
+                 // console.log(arr2[j]);
+              }
+                // 合并成单词
+              arr[i] = arr2.join("");   
+            }
+          arr = arr.join(" ");   
+          console.log(arr);    
+        }
+        creat(arr)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
