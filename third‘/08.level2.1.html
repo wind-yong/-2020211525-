@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 递归方式
+        var arr = [1, [2, [3, [4, 5]]], 6];
+        let newArray = Array();
+        function even (arr) {
+            for(var i = 0;i<arr.length;i++)
+            {
+                if(Array.isArray(arr[i]))
+                {
+                 even(arr[i]);
+                }
+                else{
+                   newArray.push(arr[i]);
+                }
+            }
+           return newArray;
+        }
+        console.log(even(arr)); 
+        
+        // 方法二
+        var arr = [1, [2, [3, [4, 5]]], 6];
+        arr = arr.toString(); //转换成字符串
+        arr = arr.split(',');//字符串拆成数组
+        var newArr = Array();
+        for(var i = 0;i<arr.length;i++)
+        {
+            // if(arr[i] == ",")
+            // {
+            //     arr.splice(i,1);//删除“ ，”
+            // }
+            newArr[i] = Number(arr[i]);//转换成数字
+        }
+
+        console.log(newArr);
+
+        var josn = JSON.stringify(arr);
+        var josn1 = JSON.parse(josn);
+        var newArr1 = Array();
+        for(var i = 0;i<josn1.length;i++)
+        {
+            newArr1[i] = Number(josn1[i]);//转换成数字
+        }
+
+        console.log(newArr1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

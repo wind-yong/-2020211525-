@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var data = {
+              age: 18,
+              name: "liuruchao",
+              education: ["小学", "初中", "高中", "大学", undefined, null],
+              likesFood: new Set(["fish", "banana"]),
+              friends: [
+                    { name: "summer",  sex: "woman"},
+                    { name: "daWen",   sex: "woman"},
+                    { name: "yang",    sex: "man" }  ], 
+              work: { 
+                      time: "2019", 
+                      project: { name: "test",obtain: ["css", "html", "js"]} 
+                    }, 
+              play: function() {    console.log("玩滑板");  }
+          }
+          //递归
+          function deepClone(obj,clone){
+             var clone = clone || {};
+             for(var i in obj)
+             {
+                
+                 if(typeof obj[i] !== 'object' || typeof obj[i] === 'null')
+                 {
+                    clone[i] = obj[i];
+                 }
+                 else if(Array.isArray(obj[i])){
+                     clone[i] = new Array([...obj[i]]);
+                 }
+                 else if(obj[i] instanceof Set){
+                     clone[i] = new Set([...obj[i]]);
+                 }
+                 else{
+                    clone[i] =  {};
+                     deepClone(obj[i],clone[i]);
+                    
+                 }
+             }
+             return clone;
+          }
+         
+          var dataClone = deepClone(data);
+          console.log(dataClone);
+         
+         
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
