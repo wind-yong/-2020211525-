@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../source/fa/css/all.css">
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: o;
+        }
+        .wrapper{
+            width: 1000px;
+            height: 900px;
+            margin: 0 auto;
+        }
+        ul{
+            list-style: none;
+        }
+        .first_line{
+            height: 100px;
+            padding: 0;
+            margin: 0px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+        input{
+            width: 300px;
+            height: 44px;
+            border-radius: 4px;
+
+        }
+       
+        button{
+            width: 90px;
+            height: 44px;
+            font-size: 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f1e1cb;
+        }
+        .explian{
+            width: 260px;
+            background-color: #fff;
+            box-shadow: 0 0 6px #aaa;
+            font-size: 18px;
+            position: absolute;
+            z-index: 999;   
+        }
+        .content
+        {
+            padding: 12px;
+        }
+        .right{
+            float: right;
+        }
+        .first{
+            margin-bottom: 4px;
+        }
+        .content1{
+            margin-bottom: 10px;
+        }
+       
+        .decoration{
+            width: 100%;
+            height: 6px;
+            background-color: crimson;
+        }
+        .small_wrapper{
+            width: 1000px;
+            height: 800px;
+            background-color: #75EBD0;
+            padding: 0px 6px 6px;
+            display : flex;
+            justify-content:space-between;
+            align-items:flex-end;
+            flex-shrink: 1;
+            /* 会变化 */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="first_line">
+            <input type="text" id="input1" >
+                <li>
+                <button>左侧入</button>
+                <div class="explian">
+                    <div class="decoration"></div>
+                    <div class="content">
+                        <div class="content1">
+                            <div class="first">
+                                <h3 style="display: inline-block;"></h3>
+                                <i class="star fas fa-star"style="color: #ccc;"></i>
+                                <span style="color: #aaa;" class="right">更多释义>></span>
+                            </div>
+                            <p style="color: #333;"></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <div class="content2">
+                            <p style="color: #aaa;">网络释义</p>
+                            <p style="color: #333;"></p>
+                        </div>
+                    </div>
+                </div>
+                </li>
+                <li>
+                <button>右侧入</button>
+                <div class="explian">
+                    <div class="decoration"></div>
+                    <div class="content">
+                        <div class="content1">
+                            <div class="first">
+                                <h3 style="display: inline-block;"></h3>
+                                <i class="star fas fa-star" style="color: #ccc;"></i>
+                                <span style="color: #aaa;" class="right">更多释义>></span>
+                            </div>
+                            <p style="color: #333;"></p>
+                            <p>left side</p>
+                            <p>left hand</p>
+                        </div>
+                        <div class="content2">
+                            <p style="color: #aaa;">网络释义</p>
+                            <p style="color: #333;"></p>
+                        </div>
+                    </div>
+                   
+                </div>
+                </li>
+                <li>
+                    <button>左侧出</button>
+                   
+                </li>
+                <li>
+                    <button>右侧出</button>
+                  
+                </li>
+                <li>
+                    <button>重新排序</button>
+                  
+                </li>
+                <li>
+                    <button>清除</button>
+                    
+                </li>
+                <li>
+                    <button>随机生成</button>
+                   
+                </li>
+              
+            <!-- </div> -->
+        </ul>
+       
+        <div class="small_wrapper"></div>
+    </div>
+    <script>
+        var input1 = document.getElementById("input1");
+        var btn = document.getElementsByTagName("button");
+        var small_wrapper = document.querySelector(".wrapper .small_wrapper")
+        var divExplian = document.querySelectorAll(".explian");
+        var arr = [["左侧","/zou ce/","left side","left hand","Left ; LH"],["右侧","/you ce/","right side","right hand","Right ; RH"]]
+        var flag=0,data=[]
+        
+         //左侧入
+        
+         btn[0].onclick = function (){
+            Input()
+            if(flag)
+            {
+                data.unshift(input1.value);
+                creat(data);
+            }
+            
+        }
+        btn[0].onmouseenter = function(){
+            
+            divExplian[0].style.display = "block";
+            explian(arr[0],0);
+        }
+        btn[0].onmouseleave = function(){
+            divExplian[0].style.display = "none";
+        }
+        btn[1].onclick = function(){
+            Input()
+            if(flag)
+            {
+                data.push(input1.value);
+                creat(data);
+            }
+        }
+        btn[1].onmouseenter = function(){
+            divExplian[1].style.display = "block";
+            explian(arr[1],1);
+        }
+        btn[1].onmouseleave = function(){
+            divExplian[1].style.display = "none";
+        }
+        btn[2].onclick = function(){
+            data.shift();
+            creat(data);
+        }
+        btn[3].onclick = function(){
+            data.pop();
+            creat(data);
+        }
+        btn[4].onclick = function(){
+            data.sort(function(a,b){
+                return a-b;
+            });
+            creat(data);
+        }
+        btn[5].onclick = function(){
+            data=[];
+            input1.value = ""
+            creat(data);
+        }
+        //随机生成   
+        btn[6].onclick = function(){
+            gainRadom()
+            creat(data)
+        }
+       
+        // 判断输入的数是否合乎要求
+        function Input(){
+            if (input1.value>=10 && input1.value<=100)
+            {
+                flag=1
+            }
+            else{
+                alert("请输入10~100的数！")
+                input1.value = ""
+            }
+        }
+        //获得随机数
+        function gainRadom(){
+            for(var i=0; i<20 ;i++){
+                var r = parseInt(Math.random()*100); //随机生成一个数字
+                data[i]=r
+            }
+            // console.log(data);
+        }
+        //随机数的个数--循环--创建这么多的方块--宽度平均分配--高度（获得随机数+“px”*每一份的大小）
+        
+        //创建方块
+        function creat(data){
+            let divA = document.querySelectorAll(".small_wrapper div");
+            let l = divA.length;
+            //删除原来的div节点
+            if(l!=0)
+            {
+                for(i =0;i<l;i++){
+                    divA[i].remove()
+                }
+
+            }
+            for(let i=0;i<data.length;i++)
+            {
+                var div = document.createElement("div")
+                div.innerHTML = data[i] + "";
+                // div.innerHTML = input1.value;
+                small_wrapper.appendChild(div);
+                div.setAttribute("class","item");
+                console.log(div.innerHTML)
+            }
+            divA = document.querySelectorAll(".small_wrapper div");
+            l = divA.length;
+            for(i =0;i<l;i++)
+            {
+                var num = divA[i].innerHTML;//获得每个div中的“数字”
+                divA[i].style.backgroundColor = "#FDC6C9";
+                divA[i].style.width = parseInt(800/l) + "px";//宽度
+                divA[i].style.height = parseInt(num)*9 +"px";//num乘以9份
+                divA[i].style.textAlign = "center";//居中
+            }
+        }
+       
+        //释义的方框
+        for(var k=0;k<divExplian.length;k++)
+        {
+            divExplian[k].style.display = "none";//隐藏下拉框
+        }
+        function explian(str,num){
+            var content1=document.querySelectorAll(".explian .content1")[num];
+            var content2=document.querySelectorAll(".explian .content2")[num];
+            
+            var p1 = content1.querySelectorAll("p");
+            var span = content1.querySelector("h3");
+            var p2 = content2.querySelectorAll("p");
+            span.innerHTML = str[0];
+            for(let i=1,j=0;i<=3;i++,j++)
+            {
+                p1[j].innerHTML=str[i];
+            }
+            p2[1].innerHTML=str[4];
+        }
+    
+    </script>
+</body>
+</html>

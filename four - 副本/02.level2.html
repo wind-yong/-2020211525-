@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 在评论区输入留言 ，点击发送后，在留言板中能够插入新的留言 -->
+    <textarea name="" id="" cols="80" rows="10"></textarea>
+    <button class="post">点击发布</button>
+    <div class="list">
+    </div>
+    <script>
+        var btn = document.getElementsByTagName("button")[0];
+        var text = document.getElementsByTagName("textarea")[0];
+        // var div = document.querySelector("div .list");
+        var div = document.getElementsByTagName("div")[0];
+    
+        btn.onclick = function(){
+            var text_gain = text.value;
+            console.log(text_gain);
+            div.innerHTML += text_gain;
+            text.value = ""
+            console.log (div.innerHTML);
+        }
+    </script>
+</body>
+</html>
