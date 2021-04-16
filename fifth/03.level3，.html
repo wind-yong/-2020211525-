@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Student(name) { 
+        function People(name) {
+            this.quence = []
+            var makePromise = ()=>{
+                return new Promise(function(resolve,reject){
+                    console.log("Hi! This is " + name +"!")
+                    resolve()
+                })
+                
+            }
+            this.quence.push(makePromise)
+            var self = this
+            var sequence = Promise.resolve()
+            setTimeout(function (){
+                for(var i=0;i<self.quence.length;i++){
+                    var nowQuence = self.quence[i];
+                    var thenFunc = (function(nowQuence){
+                        return function(){
+                            return nowQuence()
+                        }
+                    })(nowQuence)
+                    sequence = sequence.then(thenFunc)
+                }
+            },0)
+
+        }
+
+        People.prototype.sleep = function(time) {
+            var makePromise = ()=>{
+                return new Promise(function(resolve,reject){
+                    setTimeout(function(){
+                        console.log("Wake up after " + time)
+                        resolve()
+                    },time*1000)
+                   
+                })
+                
+            }
+            this.quence.push(makePromise)
+            return this
+        }
+
+        People.prototype.sleepFirst = function(time) {
+            var makePromise = ()=>{
+                return new Promise(function(resolve,reject){
+                    setTimeout(function(){
+                        console.log("Wake up after " + time)
+                        resolve()
+                    },time*1000)
+                })
+                
+            }
+            this.quence.unshift(makePromise)
+            return this
+                
+        }
+        People.prototype.study = function(course) {
+            var makePromise = ()=>{
+                return new Promise(function(resolve,reject){
+                    console.log("Study " + course + "~")
+                    resolve()
+                })
+                
+            }
+            this.quence.push(makePromise)
+            return this
+        }
+        
+	    return new People(name);
+    
+}
+
+    
+// Student('fxy');
+Student('fxy').sleep(3).study('javascript');
+// Student('fxy').study('javascript').study('Vue');
+// Student('fxy').sleepFirst(5).study('Ajax');  
+    </script>
+</body>
+</html>

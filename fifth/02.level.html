@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //1. 5 -> 5,5,5,5 先console.log里面的，再是setTimeout里
+        // 面的（放到队列里面，先执行其他的，再执行队列里面的，后进后出）
+        
+        //2.
+        for (var i = 0; i < 5; i++) {
+            (function (i) {setTimeout(function() {
+                console.log(new Date, i);
+            }, 1000)})(i);
+        }
+        console.log(new Date, i);
+        
+        //3.
+        // for (var i = 0; i < 5; i++) {
+        //     if(i==0){
+        //         console.log(new Date,i);
+        //     }
+        //     else{
+        //         (function (i) {var timer = setTimeout(function() {
+        //             console.log(new Date,i);
+        //         }, 1000*i)})(i);
+        //     }
+        // }
+        // if(i!=5){
+        //     console.log(new Date,i);
+        // }
+        
+    </script>
+</body>
+</html>

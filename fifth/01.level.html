@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "I'm?���going�??�to�?�take�??�a?�trip�?�to��?daocheng�?�on��May Day.";
+        let newStr = str;
+        
+        str = str.replace(/[a-z]/gi,"-"); //把字母都替换成-
+        for(var i=0;i<str.length;i++){
+            if(str[i]=="?" && str[i+1]=="-"){
+                var index = i+1; //找到?之后是字母的索引
+            }
+        }
+       
+        newStr = newStr.slice(0,index) + newStr.slice(index,index+1).toUpperCase() + newStr.slice(index+1)
+        newStr = newStr.replace(/\?|�/g," ").replace(/\s+/g," ")
+        console.log(newStr);
+    </script>
+</body>
+</html>
