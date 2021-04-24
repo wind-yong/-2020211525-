@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //传入对象，跟顺序没有关系哦
+        // obj = {
+        //     url:"xxx",
+        //     type:"get",
+        //     dataType:"json",
+        //     data:{
+        //         uname:"zhangsan",
+        //         age:"18"
+        //     }//需要变成 uname=zhangsan&age=18
+        // };
+        //方法
+        function myAjax(){
+            //默认
+            var defaults = {
+                type:"get",
+                url:"#",
+                dataType:"json",
+                data:{}, //参数
+                async:true,
+                success:function(result){
+                    console.log(result);
+                }
+            }
+
+            //将obj中的属性，覆盖到defaults中的属性
+            //1.如果有一些属性只存在于obj中，会给defaults中增加属性
+            //2.如果有些属性两者中都存在，则defaults被覆盖
+            //3.如果有些属性只在defaults中存在，obj中不存在，defaults中保留预定义
+           
+            for(var key in obj){
+                defaults[key] = obj[key];
+            }
+
+            var xhr = new XMLHttpRequest();
+            
+            //得到parmas
+            var parmas = "";
+            for(var attr in defaults.data){
+                parmas += attr + "=" + defaults.data[attr] + "&";
+            }
+            if(parmas){
+                parmas = parmas.substring(0,parmas.length-1);
+            }
+            //类型
+            if(defaults.type == "get")
+            {
+                defaults.url += "?" + parmas;
+            }
+            xhr.open(defaults.type,defaults.utl,defaults.async);
+            //发送
+            if(defaults.type == "get")
+            {
+                xhr.send()
+            }
+            else if(defaults.url == "post"){
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+                xhr.send(parmas)
+            }
+            //同步异步
+            if(defaults.async){
+                xhr.onreadystatechange = function(){
+                    if(xhr.statusText===4){
+                        if(xhr.status<300 && xhr.status >=200){
+                            var result = null;
+                            if(defaults.dataType == "json"){
+                                result = xhr.responseText;
+                                result = JSON.parse(result);
+                            }else if(defaults.dataType == "xml"){
+                                result = xhr.responseXML
+                            }else{
+                                result = xhr.responseText;
+                            }
+                            defaults.success(result);
+                        }
+                    }
+                }
+                
+            }
+            else{
+                if(xhr.statusText===4){
+                        if(xhr.status<300 && xhr.status >=200){
+                            var result = null;
+                            if(defaults.dataType == "json"){
+                                result = xhr.responseText;
+                                result = JSON.parse(result);
+                            }else if(defaults.dataType == "xml"){
+                                result = xhr.responseXML
+                            }else{
+                                result = xhr.responseText;
+                            }
+                            defaults.success(result);
+                        }
+                    }
+                }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐歌单</title>
+    <link rel="stylesheet" href="./01.推荐歌单.css">
+</head>
+<body>
+    <ul class="wrapper">
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+    </ul>
+    <script>
+        var ul = document.querySelector("ul");
+        var li = document.querySelectorAll("li");
+        let x = new XMLHttpRequest();
+        x.open("GET",'http://musicapi.leanapp.cn/personalized?limit=8');
+        x.send();
+        x.onreadystatechange = function(){
+            if(x.readyState===4){
+                if(x.status<300 &&x.status>=200){
+                    const {result} =JSON.parse(x.response);
+                    console.log(result)     
+                    for(let i=0;i<li.length;i++){
+                        handelRer(result[i],i);
+                    }
+                   
+                }
+            }
+        }
+        function handelRer(result,i){
+                //dom
+                //创建图片的div
+                let div_cover = document.createElement("div")
+                li[i].appendChild(div_cover)
+                div_cover.setAttribute("class","cover")
+                //创建图片的超链接
+                let a1 = document.createElement("a")
+                div_cover.appendChild(a1)
+                let img = document.createElement("img")
+                a1.appendChild(img)
+                //创建 播放量 的div
+                let div_play = document.createElement("div")
+                div_play.setAttribute("class","play")
+                li[i].appendChild(div_play)
+                let span = document.createElement("span")
+                span.setAttribute("class","play_num")
+                div_play.appendChild(span)
+                //文字的 P
+                let p = document.createElement("p")
+                p.setAttribute("class","txt")
+                li[i].appendChild(p)
+                let a2 = document.createElement("a")
+                //设置一下style
+                a2.style.textDecoration = "none";
+                
+                p.appendChild(a2)
+
+                //处理
+                img.src = result.picUrl;
+                let num = Number(result.playCount);
+                span.innerHTML = parseInt(num/1000) + "万";
+                a2.innerHTML = a1.title = result.name;
+                a2.href = a1.href = "https://music.163.com/#/playlist?id=" + result.id;
+
+        }
+    </script>
+</body>
+</html>
