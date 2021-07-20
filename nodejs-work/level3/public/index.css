@@ -1,0 +1,128 @@
+* { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none;list-style: none;}
+body { 
+    font-size: 13px; }
+.login{
+    text-align: center;
+    width: 300px;
+    height: 260px;
+    background-color: rgb(12, 145, 56);
+    padding: 80px 40px;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.content{
+    position: relative;
+  
+    width: 100%;
+    height: 100%;
+   
+}
+
+.container{
+   
+    margin: 0 auto;
+    float: left;
+    width: 80%;
+    max-height: 660px;
+    overflow-y: auto;
+    border: 10px solid #fff;
+}
+.person{
+    float: left;
+    width: 20%;
+    height: 100%;
+    padding: 10px 10px 10px 0;
+}
+.person .my{
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    padding: 6px;
+    text-align: center;
+    background-color: rgb(12, 145, 56);
+}
+.person p{
+    margin: 6px;
+}
+.chat { 
+    padding: 3px;
+    position: fixed;  
+    bottom: 0; 
+    /* left: 0; */
+    width: 100%; 
+    height: 8%;
+    border-radius: 4px;
+    border: solid 2px seagreen;
+}
+.chat input {
+    border: 0; 
+    padding: 10px;
+    width: 90%; 
+    margin-right: .5%; 
+    border-radius:4px;
+    outline: 1px solid  rgb(12, 145, 56); 
+    ;
+}
+.chat button {
+    width: 8%; 
+    background: rgb(12, 145, 56); 
+    border: none;
+    padding: 10px; 
+}
+.container h2{
+    
+    border-bottom: 4px solid rgb(207, 207, 207);;
+    text-align: center;
+}
+#messages { 
+    position: relative;
+    list-style-type: none; margin: 0; padding: 0; font-size: 16px;
+}
+#messages li { 
+    padding: 5px 10px; 
+}
+.sys_cont{ 
+    width: 100%; 
+    margin: 10px 0;
+   
+    
+    font-size: 12px;
+    color: #737373;
+    border-radius: 4px;
+    background-color: rgb(211, 212, 212);
+    text-align: center;
+} 
+
+#messages .mymsg{
+    width:100%;
+}
+.mymsg .username{
+    width: 100%;
+    text-align: right;
+}
+.mymsg .mymsg_cont{
+  
+    text-align: right;
+    background: rgb(12, 145, 56);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.othermsg .username{   
+    font-size: 14px;
+    color: rgb(17, 17, 17);
+}
+.othermsg .othermsg_cont{
+    text-align: left;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 10px;
+}
+#messages li:nth-child(odd) { 
+    width:100%;
+    text-align: left;
+}

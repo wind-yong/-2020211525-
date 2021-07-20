@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index-chat</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="login" style="display: block;">
+    <h2>用户登录</h2>
+    <p>用户名</p>
+    <input type="text" placeholder="请输入用户名" id="username">
+    <input type="submit" name="loginbtn" id="loginbtn" value="登录">
+    </div>
+    <div class="content" style="display: none;">
+       <div class="content-box">
+        <div class="container">
+            <h2>聊天室</h2>
+            <ul id="messages">
+          
+        </ul>
+      
+    </div>
+    <div class="person">
+        <div class="my">
+            <!-- <span> 你是：zhangsan</span> -->
+        </div>
+        <div class="allpepleo">
+        </div>
+       </div>
+      
+            
+        </div>
+       <div class="chat">
+          <input class="sendmsg" />
+          <button class="send">发送</button>
+        </div>
+    </div>
+ 
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+   <script src="./index.js"></script>
+</body>
+</html>

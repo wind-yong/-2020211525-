@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        form{
+            width: 400px;
+            background-color: skyblue;
+            padding: 10px;
+        }
+        input{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>这里提交表单</h1>
+    <form action="http://127.0.0.1:3000/upload" method="post" enctype="multipart/form-data">
+        用户名：<input type="text" name="title">
+        <br><br>
+        图片1：<input type="file" name="file">
+        <br><br>
+        图片2：<input type="file" name="file">
+        <br><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
